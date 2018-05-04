@@ -1,8 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: A class representing an entry that knows some things about itself.
-
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;

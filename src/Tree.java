@@ -1,9 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: Implementation of a binary tree from another assignment. The major changes are making the tree Iterable
-//              and Serializable
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;

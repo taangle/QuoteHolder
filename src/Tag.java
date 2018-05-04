@@ -1,8 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: Represents a collection of entries within a given tag
-
 import java.io.Serializable;
 import java.util.Iterator;
 

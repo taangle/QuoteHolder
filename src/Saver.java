@@ -1,8 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: A class to save a collection of classes to a location on disk
-
 import java.io.*;
 
 class Saver {

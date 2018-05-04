@@ -1,8 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: A class to load a collection of entries from a location on disc
-
 import java.io.*;
 
 class Loader {

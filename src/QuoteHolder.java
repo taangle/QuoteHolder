@@ -1,20 +1,3 @@
-//CSE 205: MW 4:30
-//Assignment: 6
-//Author: Trevor Angle, 1213009731
-//Description: The class containing the main method to interface with QuoteHolder
-
-/*My project consists of a system to store categorized quotes, poems, or any other text you want in a convenient manner.
-* The quotes that you add are persistent between sessions, that is, when you call the "save" command, a "save.col" file
-* is made that contains a serialized version of all the objects necessary to restore the state of your collection the
-* next time you run QuoteHolder. The default location for "save.col" is within a folder called "data" within your current
-* working directory. If you have this folder, whether or not "save.col" is already in it, the program will run fine. If
-* you do not have the "data" directory, you will not be able to save your collection unless you pass a string of some
-* other directory as the first argument to this program when running it from the command line (or any context where you
-* can add arguments).*/
-
-/*I will submit this project with a default "save.col" that you can check out by placing it within a folder called "data"
-* within your working directory, but it is by no means necessary for the program to work.*/
-
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
