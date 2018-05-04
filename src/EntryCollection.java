@@ -9,51 +9,56 @@ class EntryCollection implements Serializable {
     private Tag allTag;
     private HashMap<String, Tag> taggedCollection;
 
+    // Constructor sets up main collection as well as general tag
     EntryCollection() {
-        /*Constructor sets up main collection as well as general tag*/
         allTag = new Tag("all");
         taggedCollection = new HashMap<>();
     }
 
+    // Adds an entry to the collection (if it hasn't been added in the past)
     void addEntry(String text, String author, Set<String> tags) {
-        /*Adds a collection if it hasn't been added yet*/
         Entry entry = new Entry(text, author, tags);
+
+        // Add the entry to each provided tag
         for (String t : tags) {
+            // If the tag doesn't exist yet, add it to the collection first
             if (!taggedCollection.containsKey(t)) {
                 taggedCollection.put(t, new Tag(t));
             }
             taggedCollection.get(t).add(entry);
         }
+
+        //Finally, add the entry to the general tag
         allTag.add(entry);
     }
 
+    // Calls Set<> version of addEntry()
     void addEntry(String text, String author, String[] tags) {
-        /*Calls Set<> version of addEntry()*/
         addEntry(text, author, new HashSet<>(Arrays.asList(tags)));
     }
 
+    // Returns a Tag specified by name
     Tag getTag(String tag) {
-        /*Returns a Tag specified by name*/
         return taggedCollection.get(tag);
     }
 
+    // Returns a Tag specified by name
     Tag getAllEntries() {
-        /*Returns a tag that contains every entry*/
         return allTag;
     }
 
+    // Returns a Tag specified by name
     Set<Tag> getAllTags() {
-        /*Returns a Set<> of all the Tags in use*/
         return new HashSet<>(taggedCollection.values());
     }
 
+    // Returns how many total entries are in the collection
     int entryCount() {
-        /*Returns how many total entries are in the collection*/
         return allTag.entryCount();
     }
 
+    // Returns how many total tags are being used in the collection
     int tagCount() {
-        /*Returns how many total tags are being used in the collection*/
         return taggedCollection.size();
     }
 }

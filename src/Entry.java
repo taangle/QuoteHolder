@@ -2,7 +2,6 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.List;
 
 class Entry implements Comparable<Entry>, Serializable {
     private String author;
@@ -10,20 +9,21 @@ class Entry implements Comparable<Entry>, Serializable {
     private Set<String> tags;
     private static final long serialVersionUID = 1L;
 
+    // Constructor initializes all state-containing fields
     Entry(String _text, String _author, Set<String> _tags) {
-        /*Constructor initializes all state-containing fields*/
         text = _text;
         author = _author;
         tags = _tags;
     }
 
+    // Calls the Set<> version of the constructor
     Entry(String _text, String _author, String[] _tags) {
-        /*Calls the Set<> version of the constructor*/
         this(_text, _author, new HashSet<>(Arrays.asList(_tags)));
     }
 
+    // Returns a short preview version of the entry
     String preview() {
-        /*Returns a short preview version of the entry*/
+        //todo Make previewLength mutable by user
         int previewLength = 20;
         if (getText().length() >= previewLength) {
             return String.format("%s - \"%s...\"", getAuthor(), getText().substring(0, previewLength));
@@ -32,8 +32,8 @@ class Entry implements Comparable<Entry>, Serializable {
     }
 
     @Override
+    // Compares an Entry to another Entry first by author, then by text
     public int compareTo(Entry otherEntry) {
-        /*Compares an Entry to another Entry first by author, then by text*/
         int result;
         // if they do not have the same author, just compare by author
         if ((result = getAuthor().compareTo(otherEntry.getAuthor())) != 0) {
@@ -58,8 +58,8 @@ class Entry implements Comparable<Entry>, Serializable {
     }
 
     @Override
+    // Returns a string representation of all the Entry's contents
     public String toString() {
-        /*Returns a string representation of all the Entry's contents*/
         return String.format("Entry{%n\t" +
                 "author='" + author + "'%n\t" +
                 "text='" + text + "'%n\t" +

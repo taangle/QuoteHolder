@@ -7,19 +7,19 @@ public class Tag implements Iterable<Entry>, Serializable {
     private String tag;
     private static final long serialVersionUID = 6L;
 
+    // Constructor sets up Tree of Entries and tag's name
     Tag(String _tag) {
-        /*Constructor sets up Tree of Entries and name*/
         entryTree = new Tree<>();
         tag = _tag;
     }
 
+    // Inserts Entry in tree
     void add(Entry entry) {
-        /*Inserts Entry in tree*/
         entryTree.insert(entry);
     }
 
+    // Returns number of entries under this tag
     int entryCount() {
-        /*Returns number of entries under this tag*/
         return entryTree.getSize();
     }
 
@@ -29,14 +29,14 @@ public class Tag implements Iterable<Entry>, Serializable {
     }
 
     @Override
+    // Returns number of entries under this tag
     public Iterator<Entry> iterator() {
-        /*Iterator simply returns the iterator of the underlying tree*/
         return entryTree.iterator();
     }
 
     @Override
+    // Returns true if the other Object is a Tag with the same tag String
     public boolean equals(Object o) {
-        /*Returns true if the other Object is a Tag with the same tag String*/
-        return o instanceof Tag && ((Tag)o).toString().equals(toString());
+        return o instanceof Tag && o.toString().equals(toString());
     }
 }
