@@ -200,7 +200,7 @@ public class QuoteHolder {
         Set<Tag> allTags = collection.getAllTags();
         out.println();
         for(Tag t : allTags) {
-            out.printf("%s%n", t.toString());
+            out.printf("%s - %d%n", t.toString(), t.entryCount());
         }
     }
 
