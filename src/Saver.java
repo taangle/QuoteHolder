@@ -10,10 +10,15 @@ class Saver {
 
     // Attempts to save an EntryCollection to disc (it could be used to save any Object to disc, really)
     static void saveCollection(File file, EntryCollection collection) throws IOException {
-        FileOutputStream fileOut = new FileOutputStream(file);
-        //BufferedOutputStream bufferedOut = new BufferedOutputStream(fileOut);
-        //ObjectOutputStream out = new ObjectOutputStream(bufferedOut);
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(collection);
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(file));
+            out.writeObject(collection);
+        }
+        finally {
+            if (out != null) {
+                out.close();
+            }
+        }
     }
 }

@@ -10,10 +10,14 @@ class Loader {
 
     // Tries to load an EntryCollection from the specified file
     static EntryCollection loadCollection(File file) throws IOException, ClassNotFoundException {
-        FileInputStream fileIn = new FileInputStream(file);
-        //BufferedInputStream bufferedIn = new BufferedInputStream(fileIn);
-        //ObjectInputStream in = new ObjectInputStream(bufferedIn);
-        ObjectInputStream in = new ObjectInputStream(fileIn);
-        return (EntryCollection)in.readObject();
+        ObjectInputStream in = null;
+        try {
+            in = new ObjectInputStream(new FileInputStream(file));
+            return (EntryCollection) in.readObject();
+        }
+        finally {
+            if (in != null)
+                in.close();
+        }
     }
 }
